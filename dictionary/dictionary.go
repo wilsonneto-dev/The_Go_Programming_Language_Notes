@@ -1,0 +1,6 @@
+package dictionary
+
+imports {
+	"fmt"
+}
+
