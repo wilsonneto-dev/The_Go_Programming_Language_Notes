@@ -1,6 +1,0 @@
-package dictionary
-
-imports {
-	"fmt"
-}
-
