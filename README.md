@@ -1,6 +1,7 @@
 Studying GO by the book and documentation
 
 - [ ] 🟡 [https://www.amazon.com.br/Go-Programming-Language-Brian-Kernighan](https://www.amazon.com.br/Go-Programming-Language-Brian-Kernighan/dp/0134190440/ref=sr_1_1?crid=3O3XQFDCFYMID&keywords=the+go+programming+language&qid=1695784756&sprefix=The+GO+pro%2Caps%2C235)
+- [ ] https://go.dev/tour/welcome/1
 - [ ] https://go.dev/doc/effective_go
 - [ ] https://go.dev/doc/
 - [ ] https://www.youtube.com/watch?v=jFfo23yIWac
