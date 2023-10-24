@@ -111,3 +111,9 @@ const (
 
 ````
 
+### Arrays
+
+In Go arrays are types, if you copy a array to another variable, it will be a new array, not a reference.
+
+````go
+````
