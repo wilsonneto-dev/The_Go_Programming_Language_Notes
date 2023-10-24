@@ -327,3 +327,103 @@ for _, value := range m {
 #### Conclusion
 
 Maps are powerful data structures in Go that allow you to store and manage key-value pairs efficiently. By understanding the basic operations and behavior of maps, you can effectively use them in various applications.
+
+### Structs
+
+In Go, a struct is a composite data type that groups together zero or more fields (properties) with differing data types. Structs are incredibly versatile and are often used as the foundation for creating complex data models in Go.
+
+Anonymous Structs
+
+Structs don't necessarily need to have a defined name. You can create an anonymous struct, declaring it on-the-fly:
+
+```go
+aDeveloper := struct{ name string }{name: "Wilson"}
+fmt.Println(aDeveloper)
+```
+
+Structs are Value Types
+
+By default, when you assign one struct to another or pass it to a function, the entire struct is copied. This behavior is consistent with Go's other value types like int and float64.
+
+```go
+anotherDeveloper := aDeveloper
+anotherDeveloper.name = "Martin Fowler"
+fmt.Println(aDeveloper)       // Wilson
+fmt.Println(anotherDeveloper) // Martin Fowler
+```
+
+Passing Structs by Reference
+
+If you don't want to work with a copy, you can pass a pointer to the struct:
+
+```go
+anotherDeveloper2 := &aDeveloper
+anotherDeveloper2.name = "Martin Fowler"
+fmt.Println(aDeveloper)        // Martin Fowler
+fmt.Println(anotherDeveloper2) // Martin Fowler
+```
+
+Declaring Struct Types
+
+```go
+type Developer struct {
+	Name  string
+	Age   int
+	Stack []string
+}
+dev := Developer{Name: "Wilson", Age: 30, Stack: []string{"Go Lang", "C#", "Python", "JS/TS", "Azure", ".Net", "React.js", "Next.js"}}
+fmt.Println(dev)
+```
+
+Embedding
+
+Go doesn't have the traditional class inheritance that you'd find in object-oriented languages, but it offers a type embedding mechanism. This allows you to include one struct type inside another, which promotes code reuse and a form of polymorphism.
+
+```go
+type Animal struct {
+	Name   string
+	Origin string
+}
+
+type Bird struct {
+	Animal
+	CanFly bool
+}
+```
+
+Embedded types can be initialized either explicitly:
+
+```go
+bird := Bird{Animal: Animal{Name: "Name", Origin: "BR"}, CanFly: true}
+fmt.Println(bird)
+```
+
+Or implicitly:
+
+```go
+bird2 := Bird{}
+bird2.Name = "Bird 2"
+bird2.Origin = "US"
+bird2.CanFly = true
+fmt.Println(bird2)
+```
+
+#### Tags
+
+Struct field tags are annotations attached to struct field declarations. They are commonly used for metadata, such as configuring serialization and validation methods:
+
+```go
+type City struct {
+	Name  string `required max:"100" json:"name,omitempty"`
+	State string `json:"state,omitempty"`
+}
+
+r := reflect.TypeOf(City{})
+field, _ := r.FieldByName("Name")
+fmt.Println(field.Tag) //required max:"100" json:"name,omitempty"
+```
+
+#### Conclusion
+
+Structs in Go provide a flexible way to organize and model your data. They form the foundation for creating user-defined types and can be combined, embedded, or extended in versatile ways to suit the specific requirements of your program.
+
