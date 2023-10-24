@@ -46,5 +46,23 @@ func main() {
 	z2 := z1[:]
 	z3 := z1[1:4]
 	z3[0] = 0
-	fmt.Printf("z1 %v z2 %v z3 %v", z1, z2, z3)
+	fmt.Printf("z1 %v z2 %v z3 %v\n", z1, z2, z3)
+
+	// make
+	sl := make([]int, 3)
+	fmt.Printf("%v - len %v\n", sl, len(sl))
+
+	//capacity
+	sl2 := make([]int, 3, 4)
+	fmt.Printf("%v - len %v - cap %v\n", sl2, len(sl2), cap(sl2))
+	sl2 = append(sl2, 5)
+	sl2 = append(sl2, 6)
+	fmt.Printf("%v - len %v - cap %v\n", sl2, len(sl2), cap(sl2))
+
+	// testing append with common arrays
+	sl10 := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	fmt.Printf("bafore append in normal -> %v, cap %v, len %v\n", sl10, cap(sl10), len(sl10))
+	sl10 = append(sl10, 10, 11, 12, 13)
+	fmt.Printf("after append in normal -> %v, cap %v, len %v\n", sl10, cap(sl10), len(sl10))
+
 }
