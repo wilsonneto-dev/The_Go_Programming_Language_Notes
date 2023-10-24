@@ -37,8 +37,77 @@ var foo2 int
 foo3 := 31
 ````
 
-### Visibility
+### Visibility / Naming Conventions
 
 - Lower Case first letter: Package Scope
 - Upper Case first letter: Export from Package / Exposed
+
+### Type Conversions
+
+- destinationType(variable)
+- use strconv package for strings
+
+## Primitives
+
+### Types
+
+````go
+var b bool = true
+
+var b int = 1
+var b int8 = 1
+var b int16 = 1
+var b int32 = 1
+var b int64 = 1
+
+var b uint = 1
+var b uint8 = 1
+var b uint16 = 1
+var b uint32 = 1
+var b uint64 = 1
+
+var b float32 = 1
+var b float64 = 1
+
+var b complex64 = 5+2i
+var b complex128 = 5+2i
+
+var s string = ""
+var ch rune = 'a'
+````
+
+### Constants
+
+````go
+// same way
+const a int = 3
+const a = 3
+````
+
+### IOTA
+
+````go
+const (
+    a = iota  // a = 0
+    b         // b = 1
+    c         // c = 2
+)
+
+const (
+    a = iota * 2  // a = 0 * 2 = 0
+    b             // b = 1 * 2 = 2
+    c             // c = 2 * 2 = 4
+)
+
+const (
+    a = iota  // a = 0
+    b         // b = 1
+)
+
+const (
+    c = iota  // c = 0, not 2!
+    d         // d = 1
+)
+
+````
 
